@@ -14,7 +14,7 @@
         <!--GoalsVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GoalsVC" customModule="Goals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoalVC" id="BYZ-38-t0r" customClass="GoalsVC" customModule="Goals" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,6 +125,91 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Create GoalVC-->
+        <scene sceneID="Fg5-f6-FCS">
+            <objects>
+                <viewController storyboardIdentifier="CreateGoalVC" id="85R-rL-XEo" customClass="CreateGoalVC" customModule="Goals" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="njv-Mm-V4P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeU-kr-Cqz">
+                                <rect key="frame" x="16" y="20" width="36" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <action selector="backBtnWasPressed:" destination="85R-rL-XEo" eventType="touchUpInside" id="ceH-8u-g8r"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Set goal.." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="760-pV-76I">
+                                <rect key="frame" x="50" y="80" width="275" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Rdx-My-tdE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="bOQ-wK-gjQ">
+                                <rect key="frame" x="30" y="258" width="315" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHo-1Y-sJe">
+                                        <rect key="frame" x="0.0" y="0.0" width="142.5" height="30"/>
+                                        <state key="normal" title="short"/>
+                                        <connections>
+                                            <action selector="shortTermBtnWasPressed:" destination="85R-rL-XEo" eventType="touchUpInside" id="hKo-Ui-SmN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57o-bT-9In">
+                                        <rect key="frame" x="172.5" y="0.0" width="142.5" height="30"/>
+                                        <state key="normal" title="long"/>
+                                        <connections>
+                                            <action selector="longTermBtnWasPressed:" destination="85R-rL-XEo" eventType="touchUpInside" id="6YF-ex-S5m"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OtL-uw-hUi"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duf-yU-ykB">
+                                <rect key="frame" x="0.0" y="577" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Fbe-3Z-4H6"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="nextBtnWasPressed:" destination="85R-rL-XEo" eventType="touchUpInside" id="mFF-3V-uNn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DeU-kr-Cqz" firstAttribute="leading" secondItem="Sgb-eQ-4eP" secondAttribute="leading" constant="16" id="7Y2-O0-Ouh"/>
+                            <constraint firstItem="DeU-kr-Cqz" firstAttribute="top" secondItem="Sgb-eQ-4eP" secondAttribute="top" id="9JJ-V8-vUi"/>
+                            <constraint firstItem="bOQ-wK-gjQ" firstAttribute="top" secondItem="760-pV-76I" secondAttribute="bottom" constant="50" id="9fu-CW-x66"/>
+                            <constraint firstItem="760-pV-76I" firstAttribute="top" secondItem="Sgb-eQ-4eP" secondAttribute="top" constant="60" id="DM4-XS-YJ4"/>
+                            <constraint firstItem="bOQ-wK-gjQ" firstAttribute="leading" secondItem="Sgb-eQ-4eP" secondAttribute="leading" constant="30" id="HsP-jg-MEh"/>
+                            <constraint firstItem="Sgb-eQ-4eP" firstAttribute="bottom" secondItem="duf-yU-ykB" secondAttribute="bottom" constant="60" id="RO1-dj-O8c"/>
+                            <constraint firstItem="Sgb-eQ-4eP" firstAttribute="trailing" secondItem="bOQ-wK-gjQ" secondAttribute="trailing" constant="30" id="Ust-rM-SHI"/>
+                            <constraint firstItem="duf-yU-ykB" firstAttribute="leading" secondItem="Sgb-eQ-4eP" secondAttribute="leading" id="bma-Ij-7pJ"/>
+                            <constraint firstItem="760-pV-76I" firstAttribute="leading" secondItem="Sgb-eQ-4eP" secondAttribute="leading" constant="50" id="mKF-bZ-uJL"/>
+                            <constraint firstItem="Sgb-eQ-4eP" firstAttribute="trailing" secondItem="760-pV-76I" secondAttribute="trailing" constant="50" id="qpE-E3-s51"/>
+                            <constraint firstItem="Sgb-eQ-4eP" firstAttribute="trailing" secondItem="duf-yU-ykB" secondAttribute="trailing" id="uB8-Ko-jGv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Sgb-eQ-4eP"/>
+                    </view>
+                    <connections>
+                        <outlet property="goalTextView" destination="760-pV-76I" id="uBL-y0-0DR"/>
+                        <outlet property="longTermBtn" destination="57o-bT-9In" id="u6V-Iv-fFW"/>
+                        <outlet property="nextBtn" destination="duf-yU-ykB" id="pdl-UC-XeC"/>
+                        <outlet property="shortTermBtn" destination="aHo-1Y-sJe" id="Kun-Yk-1lS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcG-8Q-V8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="935" y="134"/>
         </scene>
     </scenes>
 </document>
