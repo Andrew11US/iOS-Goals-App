@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+// App Delegate entity
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class GoalsVC: UIViewController {
@@ -30,6 +31,7 @@ class GoalsVC: UIViewController {
         tableView.reloadData()
     }
     
+    // Fetching data from core data
     func fetchCoreDataObjects() {
         self.fetch { (complete) in
             if complete {
@@ -50,6 +52,7 @@ class GoalsVC: UIViewController {
 }
 
 extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -59,7 +62,9 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "goalCell") as? GoalCell else { return UITableViewCell() }
+        
         let goal = goals[indexPath.row]
         cell.configureCell(goal: goal)
         return cell
@@ -74,6 +79,7 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
             self.removeGoal(atIndexPath: indexPath)
             self.fetchCoreDataObjects()
@@ -93,7 +99,9 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension GoalsVC {
+    
     func setProgress(atIndexPath indexPath: IndexPath) {
+        
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         
         let chosenGoal = goals[indexPath.row]
@@ -113,6 +121,7 @@ extension GoalsVC {
     }
     
     func removeGoal(atIndexPath indexPath: IndexPath) {
+        
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         
         managedContext.delete(goals[indexPath.row])
@@ -126,6 +135,7 @@ extension GoalsVC {
     }
     
     func fetch(completion: (_ complete: Bool) -> ()) {
+        
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         
         let fetchRequest = NSFetchRequest<Goal>(entityName: "Goal")
